@@ -52,6 +52,11 @@ public class UploadService {
     static final long START_TIME = 1649466000;
 
     /**
+     * 结束时间为一个月后 2022-05-09 09:00:00
+     */
+    static final long END_TIME = 1652058000;
+
+    /**
      * 时间流动系数
      */
     static final long FACTOR = 500;
@@ -112,6 +117,9 @@ public class UploadService {
      */
     @Scheduled(cron = "0/5 * * * * *")
     void uploadData() throws JsonProcessingException {
+        if (curTime >= END_TIME)
+            return;
+
         curTime += 5L * FACTOR;
 
         while (curHumidity != null && curHumidity.ts <= curTime * TS_FACTOR) {
