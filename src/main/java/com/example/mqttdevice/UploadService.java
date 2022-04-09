@@ -23,7 +23,9 @@ import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @EnableScheduling
 public class UploadService {
@@ -104,6 +106,8 @@ public class UploadService {
             curHumidity = parseData(humidityIt.next());
         if (temperatureIt.hasNext())
             curTemperature = parseData(temperatureIt.next());
+
+        log.info("温湿度数据上传开始, curTime: {}", curTime);
     }
 
     @PreDestroy
@@ -121,6 +125,9 @@ public class UploadService {
             return;
 
         curTime += 5L * FACTOR;
+
+        if (curTime >= END_TIME)
+            log.info("温湿度数据上传结束, curTime: {}", curTime);
 
         while (curHumidity != null && curHumidity.ts <= curTime * TS_FACTOR) {
             mqttHumidityGateway.sendToMqtt(objectMapper.writeValueAsString(curHumidity), "v1/devices/me/telemetry");
