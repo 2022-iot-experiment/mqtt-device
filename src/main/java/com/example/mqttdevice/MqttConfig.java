@@ -101,7 +101,7 @@ public class MqttConfig {
     @Bean
     @ServiceActivator(inputChannel = "mqttTemperatureOutboundChannel")
     public MessageHandler temperatureMessageHandler() {
-        MqttPahoMessageHandler messageHandler = new MqttPahoMessageHandler("humidityClient",
+        MqttPahoMessageHandler messageHandler = new MqttPahoMessageHandler("temperatureClient",
                 mqttTemperatureClientFactory());
         messageHandler.setAsync(true);
         messageHandler.setDefaultQos(1);
