@@ -38,10 +38,10 @@ public class UploadService {
     }
 
     /**
-     * 数据集起始时间为 2017-03-09 09:11:35
-     * 加上偏移量偏移到 2022-04-09 09:11:35
+     * 数据集起始时间为 2017-03-09 09:11:35 1489021895
+     * 加上偏移量偏移到 2021-03-09 09:11:35 1615252295
      */
-    static final long TS_OFFSET = 160444800;
+    static final long TS_OFFSET = 126230400;
 
     /**
      * TB 默认的时间戳是毫秒级
@@ -49,14 +49,14 @@ public class UploadService {
     static final long TS_FACTOR = 1000;
 
     /**
-     * 模拟起始时间为 2022-04-09 09:00:00
+     * 模拟起始时间为 2021-03-09 09:00:00
      */
-    static final long START_TIME = 1649466000;
+    static final long START_TIME = 1615251600;
 
     /**
-     * 结束时间为一个月后 2022-05-09 09:00:00
+     * 结束时间为一个月后 2021-04-09 09:00:00
      */
-    static final long END_TIME = 1652058000;
+    static final long END_TIME = 1617930000;
 
     /**
      * 时间流动系数
