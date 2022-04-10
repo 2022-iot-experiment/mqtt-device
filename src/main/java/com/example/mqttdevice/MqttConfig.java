@@ -68,7 +68,7 @@ public class MqttConfig {
         DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
         MqttConnectOptions options = new MqttConnectOptions();
         options.setServerURIs(new String[] { "tcp://121.37.81.22:1884" });
-        options.setUserName("v6JxANsgC01AJSb16Cwv");
+        options.setUserName("humidity");
         factory.setConnectionOptions(options);
         return factory;
     }
@@ -93,7 +93,7 @@ public class MqttConfig {
         DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
         MqttConnectOptions options = new MqttConnectOptions();
         options.setServerURIs(new String[] { "tcp://121.37.81.22:1884" });
-        options.setUserName("nifeEauEE3nYcUNfu4eN");
+        options.setUserName("temperature");
         factory.setConnectionOptions(options);
         return factory;
     }
