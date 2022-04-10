@@ -117,14 +117,14 @@ public class UploadService {
     }
 
     /**
-     * 每五秒进行一次上传
+     * 每一秒进行一次上传
      */
-    @Scheduled(cron = "0/5 * * * * *")
+    @Scheduled(cron = "0/1 * * * * *")
     void uploadData() throws JsonProcessingException {
         if (curTime >= END_TIME)
             return;
 
-        curTime += 5L * FACTOR;
+        curTime += 1L * FACTOR;
 
         if (curTime >= END_TIME)
             log.info("温湿度数据上传结束, curTime: {}", curTime);
